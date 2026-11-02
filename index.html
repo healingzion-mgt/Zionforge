@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#081426" />
+  <meta name="description" content="ZIONFORGE — your personal AI software studio." />
+  <title>ZIONFORGE | AI Software Studio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home" aria-label="ZIONFORGE home">
+        <span class="brand-mark">ZF</span><span><strong>ZIONFORGE</strong><small>AI SOFTWARE STUDIO</small></span>
+      </a>
+      <button class="new-project" id="newProject"><span>＋</span> New project</button>
+      <p class="nav-label">WORKSPACE</p>
+      <nav>
+        <button class="nav-item active" data-view="studio"><span>✳</span> AI Studio</button>
+        <button class="nav-item" data-view="projects"><span>▣</span> My projects</button>
+        <button class="nav-item" data-view="deploy"><span>↗</span> Deployments</button>
+      </nav>
+      <p class="nav-label tools-label">DEVELOPMENT TOOLS</p>
+      <nav>
+        <button class="nav-item" data-view="github"><span>⌘</span> GitHub guide</button>
+        <button class="nav-item" data-view="cloudflare"><span>☁</span> Cloudflare guide</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="profile"><div class="avatar">Z</div><div><strong>CEO ZION</strong><small>Personal workspace</small></div><span class="more">•••</span></div><div class="version">ZIONFORGE · VERSION 1.0</div></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><button class="mobile-menu" id="mobileMenu">☰</button><div class="crumb">Workspace <span>/</span> <b id="crumbCurrent">AI Studio</b></div><div class="top-actions"><span class="status-dot"></span><span class="top-status">Studio ready</span><button class="help-btn" id="helpBtn">? Help</button></div></header>
+
+      <section class="view active" id="studioView">
+        <div class="welcome-row"><div><div class="eyebrow"><span class="spark">✦</span> YOUR IDEAS, BUILT WITH AI</div><h1>What are we <em>building</em> today?</h1><p class="subheading">Describe your idea in everyday words. ZIONFORGE will help turn it into a software project.</p></div><div class="hero-orbit"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-core">ZF</div></div></div>
+        <div class="builder-card">
+          <div class="builder-head"><div><span class="step-tag">01 / PROJECT BRIEF</span><h2>Tell us what you want to create</h2></div><span class="secure-label">✧ Your private studio</span></div>
+          <label class="field-label" for="projectName">PROJECT NAME <span>(optional)</span></label><input id="projectName" class="text-input" placeholder="e.g. Business Registration Portal" maxlength="70" />
+          <label class="field-label prompt-label" for="prompt">DESCRIBE YOUR IDEA</label><textarea id="prompt" rows="6" placeholder="Example: Build a business directory where business owners can register, add their services and upload photos. Include an admin dashboard to approve listings..."></textarea>
+          <div class="prompt-footer"><span><span class="tiny-spark">✦</span> The more detail you provide, the better the project plan.</span><span id="charCount">0 / 5000</span></div>
+          <div class="builder-controls"><div class="mode-select"><span class="field-label">BUILD MODE</span><div class="segmented"><button class="mode active" data-mode="guided">Guided build</button><button class="mode" data-mode="auto">Auto build</button></div></div><button class="generate-btn" id="generateBtn"><span>✦</span> Generate my project <b>→</b></button></div>
+          <div class="notice" id="notice" role="status">AI generation needs a private API key to be configured on your Cloudflare project. You can still explore the workspace and deployment guides now.</div>
+        </div>
+        <div class="section-heading"><div><span class="step-tag">02 / STARTER IDEAS</span><h2>Need a starting point?</h2></div><span class="muted">Choose an idea to fill the brief</span></div>
+        <div class="idea-grid">
+          <button class="idea-card" data-idea="Create a business directory website with business profiles, categories, search, contact details, and an admin approval dashboard."><span class="idea-icon gold">▤</span><strong>Business directory</strong><small>Profiles, categories and search</small><span class="idea-arrow">↗</span></button>
+          <button class="idea-card" data-idea="Create a booking application for a spa. Customers can view treatments, choose a date and time, submit their contact details, and receive a booking confirmation. Include an admin area to manage bookings."><span class="idea-icon blue">◷</span><strong>Booking platform</strong><small>Appointments and management</small><span class="idea-arrow">↗</span></button>
+          <button class="idea-card" data-idea="Create a company website with a home page, about page, services, portfolio, testimonials and a contact form. Make it mobile friendly and accessible."><span class="idea-icon purple">▧</span><strong>Business website</strong><small>Pages, services and contact form</small><span class="idea-arrow">↗</span></button>
+        </div>
+        <div class="output-panel hidden" id="outputPanel"><div class="output-title"><div><span class="step-tag">PROJECT WORKSPACE</span><h2 id="outputName">Your project plan</h2></div><span class="badge-ready">Generated</span></div><div id="outputBody"></div></div>
+      </section>
+
+      <section class="view" id="projectsView"><div class="page-heading"><span class="eyebrow">YOUR WORK</span><h1>My projects</h1><p class="subheading">Projects created in this browser are listed here.</p></div><div id="projectList" class="project-list"></div></section>
+      <section class="view" id="deployView"><div class="page-heading"><span class="eyebrow">PUBLISH YOUR WORK</span><h1>Deployments</h1><p class="subheading">Your deployment checklist and published project links.</p></div><div class="guide-card"><h2>Deployment checklist</h2><div class="check-row"><span>01</span><div><b>Generate and review your project</b><small>Check the project files and test the app locally.</small></div><span class="check-state">TO DO</span></div><div class="check-row"><span>02</span><div><b>Push the files to GitHub</b><small>Create a repository and upload your project.</small></div><span class="check-state">TO DO</span></div><div class="check-row"><span>03</span><div><b>Connect GitHub to Cloudflare</b><small>Import the repository into Cloudflare Pages.</small></div><span class="check-state">TO DO</span></div><div class="check-row"><span>04</span><div><b>Publish and test your live URL</b><small>Check mobile layout, links, forms and functions.</small></div><span class="check-state">TO DO</span></div></div></section>
+      <section class="view" id="githubView"><div class="page-heading"><span class="eyebrow">SOURCE CONTROL</span><h1>GitHub deployment guide</h1><p class="subheading">Keep your project code backed up and ready to deploy.</p></div><div class="guide-card"><div class="guide-intro"><div class="guide-icon">⌘</div><div><h2>Publish your code to GitHub</h2><p>GitHub stores your project files and keeps a history of your changes.</p><a href="https://github.com/new" target="_blank" rel="noreferrer">Open GitHub · Create a repository ↗</a></div></div><ol class="steps"><li><b>Sign in to GitHub</b><p>Open GitHub and sign in to your account.</p></li><li><b>Create a new repository</b><p>Choose a clear name such as <code>zionforge-first-app</code>. For a private project, choose Private.</p></li><li><b>Upload your project files</b><p>Open the repository, choose <b>Add file → Upload files</b>, select your project files and commit the changes.</p></li><li><b>Check the repository</b><p>Make sure <code>index.html</code> and the other project files appear in the repository root.</p></li></ol><div class="tip">Tip: Never upload API keys, passwords, or secret environment files to GitHub.</div></div></section>
+      <section class="view" id="cloudflareView"><div class="page-heading"><span class="eyebrow">GO LIVE</span><h1>Cloudflare deployment guide</h1><p class="subheading">Publish a website from your GitHub repository.</p></div><div class="guide-card"><div class="guide-intro"><div class="guide-icon cloud">☁</div><div><h2>Deploy with Cloudflare Pages</h2><p>For this first static prototype, Cloudflare Pages can publish the site directly from GitHub.</p><a href="https://dash.cloudflare.com/?to=/:account/pages/new/provider/github" target="_blank" rel="noreferrer">Open Cloudflare Pages ↗</a></div></div><ol class="steps"><li><b>Sign in to Cloudflare</b><p>Open the Cloudflare dashboard and choose Workers & Pages, then Create.</p></li><li><b>Connect to GitHub</b><p>Authorise Cloudflare to access the repository you created.</p></li><li><b>Select your repository</b><p>Choose the ZIONFORGE project repository. For this static version, leave the build command blank and set the output directory to <code>/</code>.</p></li><li><b>Deploy</b><p>Click Save and Deploy. Cloudflare will provide a public <code>pages.dev</code> address.</p></li><li><b>Test your live website</b><p>Open the link on your phone and computer. Check all navigation and project screens.</p></li></ol><div class="tip">Important: The AI generation endpoint is a Cloudflare Pages Function. Add your AI provider key as a secret named <code>OPENAI_API_KEY</code> in your Pages project settings before using live AI generation.</div></div></section>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
