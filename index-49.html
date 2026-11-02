@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0F2A56" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Zionforge by Healingzion Management Ventures: describe an idea and get a complete, ready-to-publish web project." />
+  <title>Zionforge | Healingzion Management Ventures</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <a class="brand" href="#studio" data-view="studio" aria-label="Zionforge home">
+        <img src="hmv-mark.png" alt="" width="44" height="44" />
+        <span class="brand-text"><strong>ZIONFORGE</strong><small>by Healingzion Management Ventures</small></span>
+      </a>
+      <nav class="tabs" aria-label="Main">
+        <button class="tab active" data-view="studio">Studio</button>
+        <button class="tab" data-view="projects">My projects</button>
+        <button class="tab" data-view="guides">Publish guide</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- STUDIO -->
+    <section class="view active" id="view-studio">
+      <div class="hero">
+        <div class="hero-text">
+          <p class="eyebrow">YOUR IDEAS, BUILT WITH AI</p>
+          <h1>What shall we <span>build</span> today?</h1>
+          <p class="lead">Describe your idea in everyday words. Zionforge writes the project files for you to download and publish.</p>
+        </div>
+        <div class="hero-logo"><img src="hmv-logo.jpg" alt="Healingzion Management Ventures. Inspire, Empower, Succeed." width="586" height="426" /></div>
+      </div>
+
+      <div class="wrap">
+        <div class="card builder">
+          <p class="step">STEP 1 · YOUR IDEA</p>
+          <h2>Tell us what you want to create</h2>
+
+          <label for="projectName">Project name <em>(optional)</em></label>
+          <input id="projectName" type="text" maxlength="70" placeholder="e.g. Bible Study App" autocomplete="off" />
+
+          <label for="prompt">Describe your idea</label>
+          <textarea id="prompt" rows="6" maxlength="5000" placeholder="Example: Build a business directory where owners can register, add their services and photos. Include a page for visitors to search by category."></textarea>
+          <div class="count-row"><span>The more detail you give, the better the result.</span><span id="charCount">0 / 5000</span></div>
+
+          <p class="label-like">Build mode</p>
+          <div class="seg" role="group" aria-label="Build mode">
+            <button class="mode active" data-mode="guided" aria-pressed="true">Guided build</button>
+            <button class="mode" data-mode="auto" aria-pressed="false">Auto build</button>
+          </div>
+          <p class="mode-help" id="modeHelp">Guided: clear explanations of what each file does.</p>
+
+          <button class="go" id="generateBtn" type="button"><span class="go-label">Generate my project</span><span class="go-arrow" aria-hidden="true">→</span></button>
+          <div class="notice hidden" id="notice" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="head-row"><div><p class="step">STEP 2 · OPTIONAL</p><h2>Need a starting point?</h2></div></div>
+        <div class="ideas">
+          <button class="idea" data-name="Bible Study App" data-idea="Build a Bible study app where I can read a chapter, switch between a few translations that are free to use (such as KJV and WEB), search for any word in the Bible, bookmark verses and write personal notes. Make it fast and easy to use on a phone.">
+            <b>Bible study app</b><small>Read, search and take notes</small>
+          </button>
+          <button class="idea" data-name="Business Directory" data-idea="Create a business directory website with business profiles, categories, search, contact buttons for phone and WhatsApp, and a simple page for owners to request a listing.">
+            <b>Business directory</b><small>Profiles, categories and search</small>
+          </button>
+          <button class="idea" data-name="Booking Page" data-idea="Create a booking page for a spa. Customers see treatments and prices, choose a date and time, and send their details to the owner on WhatsApp. Make it mobile friendly.">
+            <b>Booking page</b><small>Appointments by WhatsApp</small>
+          </button>
+          <button class="idea" data-name="Company Website" data-idea="Create a professional company website with a home page, about, services, testimonials and a contact section. Mobile friendly, fast, and easy to edit.">
+            <b>Company website</b><small>Pages, services and contact</small>
+          </button>
+        </div>
+
+        <div class="card result hidden" id="result" aria-live="polite">
+          <div class="result-head">
+            <div><p class="step" id="resultTag">YOUR PROJECT</p><h2 id="resultName">Project</h2></div>
+            <span class="pill" id="resultPill">Ready</span>
+          </div>
+          <div id="resultBody"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="view" id="view-projects">
+      <div class="page-head"><p class="eyebrow">YOUR WORK</p><h1>My projects</h1><p class="lead">Saved in this browser only. Download the zip to keep a permanent copy.</p></div>
+      <div class="wrap"><div id="projectList"></div></div>
+    </section>
+
+    <!-- GUIDES -->
+    <section class="view" id="view-guides">
+      <div class="page-head"><p class="eyebrow">GO LIVE</p><h1>Publish your project</h1><p class="lead">From the downloaded zip to a live website, in three steps.</p></div>
+      <div class="wrap">
+        <div class="card guide">
+          <h2>1. Put the files on GitHub</h2>
+          <ol>
+            <li>Unzip the download on your phone or computer.</li>
+            <li>In GitHub, tap <b>New repository</b>. Give it a clear name and choose <b>Private</b> if you prefer.</li>
+            <li>Tap <b>Add file</b>, then <b>Upload files</b>, choose the project files and tap <b>Commit changes</b>.</li>
+          </ol>
+          <p class="tip">Never upload passwords or API keys to GitHub.</p>
+        </div>
+        <div class="card guide">
+          <h2>2. Publish with Cloudflare Pages</h2>
+          <ol>
+            <li>Cloudflare: <b>Workers &amp; Pages</b>, then <b>Create application</b>.</li>
+            <li>Choose the <b>Pages</b> option (the small link at the bottom), then <b>Import an existing Git repository</b>.</li>
+            <li>Select your repository and branch <b>main</b>.</li>
+            <li>Framework preset: <b>None</b>. Build command: <b>empty</b>. Output directory: <b>/</b>. Tap <b>Save and Deploy</b>.</li>
+          </ol>
+          <p class="tip">Choose Pages, not Workers. A project with a <code>functions</code> folder will fail as a Worker.</p>
+        </div>
+        <div class="card guide">
+          <h2>3. Check it on your phone</h2>
+          <ol>
+            <li>Open the new <b>.pages.dev</b> address.</li>
+            <li>Test every button, form and page.</li>
+            <li>To use your own address, open the project, tap <b>Custom domains</b> and add it.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <img src="hmv-mark.png" alt="" width="28" height="28" />
+    <p><b>Zionforge</b> by Healingzion Management Ventures</p>
+    <p class="tagline">Inspire · Empower · Succeed</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
