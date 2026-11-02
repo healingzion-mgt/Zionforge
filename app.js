@@ -226,7 +226,7 @@
     pill.className = 'pill' + (demo ? ' demo' : '');
 
     if (demo) {
-      body.appendChild(el('p', 'demo-note', 'This is a sample plan only. The AI is not connected yet, so no real project files were written. Once the AI key is added, the same button writes the complete files.'));
+      body.appendChild(el('p', 'demo-note', 'This is a sample plan only. The AI is not connected yet, so no real project files were written. Once the AI is connected, the same button writes the complete files.'));
     }
     if (result.summary) body.appendChild(el('p', null, result.summary));
 
@@ -329,7 +329,7 @@
       ],
       files: [],
       next_steps: [
-        'Connect the AI key (see the note above)',
+        'Connect the free Cloudflare AI (see the note above)',
         'Tap Generate again to get the real project files',
         'Download the zip and test it on your phone',
         'Upload to GitHub and publish on Cloudflare Pages'
@@ -370,7 +370,7 @@
         remember(name || o.data.project_name, prompt, o.data);
         toast('Your project is ready.');
       } else if (o.res.status === 503 || o.res.status === 404) {
-        showNotice('The AI is not connected yet. Add the OPENAI_API_KEY secret in Cloudflare and redeploy. A sample plan is shown below.', '');
+        showNotice('The AI is not connected yet. In Cloudflare, add the Workers AI binding named AI, then redeploy. A sample plan is shown below.', '');
         renderResult(name, demoPlan(prompt, name), true);
       } else if (o.res.status === 401 || o.res.status === 403) {
         showNotice('Please sign in again. Refresh this page and log in with your email.', 'err');
